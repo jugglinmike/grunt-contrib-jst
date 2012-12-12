@@ -20,6 +20,7 @@ module.exports = function(grunt) {
     var helpers = require('grunt-lib-contrib').init(grunt);
     var options = this.options({
       namespace: 'JST',
+      _lib: _,
       templateSettings: {}
     });
 
@@ -36,7 +37,7 @@ module.exports = function(grunt) {
       var src = grunt.file.read(file);
 
       try {
-        compiled = _.template(src, false, options.templateSettings).source;
+        compiled = options._lib.template(src, false, options.templateSettings).source;
       } catch (e) {
         grunt.log.error(e);
         grunt.fail.warn('JST failed to compile.');

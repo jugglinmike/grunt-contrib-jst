@@ -35,6 +35,21 @@ module.exports = function(grunt) {
           "tmp/jst.js": ["test/fixtures/template.html"]
         }
       },
+      custom_underscore: {
+        options: {
+          _lib: {
+            template: function() {
+              var _ = require('underscore');
+              var rendered = _.template.apply(_, arguments);
+              rendered.source += '/* ignore me */';
+              return rendered;
+            }
+          },
+        },
+        files: {
+            "tmp/custom_underscore.js": ["test/fixtures/template.html"]
+        }
+      },
       pretty_amd: {
         options: {
           prettify: true,

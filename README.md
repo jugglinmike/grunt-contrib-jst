@@ -99,6 +99,21 @@ options: {
 }
 ```
 
+#### \_lib
+Type: ```object```
+Default: Underscore.js
+
+The Underscore.js library is used to generate templates. If you would like to
+use a library with a compatable template engine (Lodash, for example), specify
+the library here.
+
+Example:
+``` javascript
+options: {
+  _lib: require("lodash")
+}
+```
+
 ### Usage Examples
 
 ```js
